@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-row class="mt-14 d-flex align-center">
+        <v-row class="d-flex align-center">
             <v-col cols="6">
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -44,5 +44,14 @@ p {
     font-size: 100%;
     line-height: inherit;
     font-family: inherit;
+}
+
+
+.row {
+    position: fixed;
+    height: 200px;
+    top: 35%;
+    /* left: 80%; */
+    margin-top: -100px; /* Negative half of height. */
 }
 </style>

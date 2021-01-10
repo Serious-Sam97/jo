@@ -5,7 +5,7 @@
         <v-app>
             <div class="d-flex justify-content-between">
                 <header-menu/>
-                <div class="container">
+                <div class="container centered">
                     <v-container>
                             <router-view></router-view>
                     </v-container>
