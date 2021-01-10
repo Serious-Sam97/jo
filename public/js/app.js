@@ -334,6 +334,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Projects'
 });
@@ -403,8 +414,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_components_system_base_HeaderMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/components/system-base/HeaderMenu.vue */ "./resources/js/components/system-base/HeaderMenu.vue");
-//
-//
 //
 //
 //
@@ -1785,7 +1794,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Teste\n")])
+  return _c(
+    "div",
+    [
+      _c(
+        "v-row",
+        {
+          staticClass: "d-flex justify-center",
+          staticStyle: { width: "75%", top: "130px" }
+        },
+        [
+          _c("label", { staticStyle: { "font-size": "25px" } }, [
+            _vm._v("Projectos/ Ouça")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "v-row",
+        {
+          staticClass: "d-flex justify-space-between mt-16",
+          staticStyle: { width: "73%", top: "130px" }
+        },
+        [
+          _c("div", [_vm._v("\n            Teste\n        ")]),
+          _vm._v(" "),
+          _c("div", [
+            _c("iframe", {
+              attrs: {
+                src:
+                  "https://open.spotify.com/embed/artist/4HLwmiGQvy1DHiKUSTtnCl",
+                width: "300",
+                height: "380",
+                frameborder: "0",
+                allowtransparency: "true",
+                allow: "encrypted-media"
+              }
+            })
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1895,12 +1946,7 @@ var render = function() {
           [
             _c("header-menu"),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "container centered" },
-              [_c("v-container", [_c("router-view")], 1)],
-              1
-            )
+            _c("v-container", [_c("router-view")], 1)
           ],
           1
         )
