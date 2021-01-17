@@ -6,6 +6,7 @@ import vuetify from './vuetify';
 import App from '../views/App.vue'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
+import Contact from './components/Contact.vue';
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const router = new VueRouter({
             path: '/projects',
             name: 'Projects',
             component: Projects,
+        },
+        {
+            path: '/contact',
+            name: 'Contact',
+            component: Contact,
         },
     ],
 });

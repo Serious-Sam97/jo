@@ -1,5 +1,11 @@
 <template>
-  <v-navigation-drawer absolute permanent right>
+  <v-navigation-drawer
+    permanent
+    absolute
+    expand-on-hover
+    right
+    class="hover-menu"
+  >
     <v-list dense>
       <v-list-item v-for="item in items" :key="item.title">
         <v-list-item-content>
@@ -20,7 +26,7 @@
 
 <script>
 export default {
-  name: "HeaderMenu",
+  name: "HeaderMenuHide",
   data() {
     return {
       items: [
@@ -33,10 +39,16 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .v-navigation-drawer__content {
   display: flex !important;
   align-items: center !important;
 }
+
+.hover-menu {
+  height: 100%;
+  top: 0px;
+  transform: translateX(0%);
+  width: 10px;
+}
 </style>
-       
