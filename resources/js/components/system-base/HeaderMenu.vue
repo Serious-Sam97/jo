@@ -1,5 +1,11 @@
 <template>
-  <v-navigation-drawer absolute permanent right>
+  <v-navigation-drawer
+    absolute
+    :permanent="!isMobile"
+    :temporary="isMobile"
+    :right="!isMobile"
+    v-model="menu"
+  >
     <v-list dense>
       <v-list-item v-for="item in items" :key="item.title">
         <v-list-item-content>
@@ -29,6 +35,20 @@ export default {
         { title: "Contato", route: "Contact" },
       ],
     };
+  },
+  props: {
+    value: Boolean,
+    isMobile: Boolean,
+  },
+  computed: {
+    menu: {
+      set(value) {
+        this.$emit("input", value);
+      },
+      get() {
+        return this.value;
+      },
+    },
   },
 };
 </script>

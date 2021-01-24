@@ -5,9 +5,16 @@
       rel="stylesheet"
     />
     <v-main>
-      <router-view></router-view>
-      <header-menu v-if="$route.name === 'Home'" />
+      <div class="py-2 px-2">
+        <v-btn @click="() => (menu = !menu)" v-if="isMobile">Menu</v-btn>
+      </div>
+      <header-menu
+        :isMobile="isMobile"
+        v-model="menu"
+        v-if="$route.name === 'Home' || isMobile"
+      />
       <header-menu-hide v-else />
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -20,6 +27,23 @@ export default {
   components: {
     HeaderMenu,
     HeaderMenuHide,
+  },
+  data() {
+    return {
+      menu: false,
+    };
+  },
+  watch: {
+    isMobile() {
+      if (!this.isMobile) {
+        this.menu = true;
+      }
+    },
+  },
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.width <= 768;
+    },
   },
 };
 </script>

@@ -540,6 +540,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HeaderMenu",
   data: function data() {
@@ -555,6 +561,20 @@ __webpack_require__.r(__webpack_exports__);
         route: "Contact"
       }]
     };
+  },
+  props: {
+    value: Boolean,
+    isMobile: Boolean
+  },
+  computed: {
+    menu: {
+      set: function set(value) {
+        this.$emit("input", value);
+      },
+      get: function get() {
+        return this.value;
+      }
+    }
   }
 });
 
@@ -640,6 +660,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -647,6 +674,23 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     HeaderMenu: _js_components_system_base_HeaderMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     HeaderMenuHide: _js_components_system_base_HeaderMenuHide_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      menu: false
+    };
+  },
+  watch: {
+    isMobile: function isMobile() {
+      if (!this.isMobile) {
+        this.menu = true;
+      }
+    }
+  },
+  computed: {
+    isMobile: function isMobile() {
+      return this.$vuetify.breakpoint.width <= 768;
+    }
   }
 });
 
@@ -2459,7 +2503,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-navigation-drawer",
-    { attrs: { absolute: "", permanent: "", right: "" } },
+    {
+      attrs: {
+        absolute: "",
+        permanent: !_vm.isMobile,
+        temporary: _vm.isMobile,
+        right: !_vm.isMobile
+      },
+      model: {
+        value: _vm.menu,
+        callback: function($$v) {
+          _vm.menu = $$v
+        },
+        expression: "menu"
+      }
+    },
     [
       _c(
         "v-list",
@@ -2610,11 +2668,41 @@ var render = function() {
       _c(
         "v-main",
         [
-          _c("router-view"),
+          _c(
+            "div",
+            { staticClass: "py-2 px-2" },
+            [
+              _vm.isMobile
+                ? _c(
+                    "v-btn",
+                    {
+                      on: {
+                        click: function() {
+                          return (_vm.menu = !_vm.menu)
+                        }
+                      }
+                    },
+                    [_vm._v("Menu")]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
           _vm._v(" "),
-          _vm.$route.name === "Home"
-            ? _c("header-menu")
-            : _c("header-menu-hide")
+          _vm.$route.name === "Home" || _vm.isMobile
+            ? _c("header-menu", {
+                attrs: { isMobile: _vm.isMobile },
+                model: {
+                  value: _vm.menu,
+                  callback: function($$v) {
+                    _vm.menu = $$v
+                  },
+                  expression: "menu"
+                }
+              })
+            : _c("header-menu-hide"),
+          _vm._v(" "),
+          _c("router-view")
         ],
         1
       )
