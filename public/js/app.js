@@ -362,6 +362,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Contact",
   data: function data() {
@@ -433,17 +441,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Home"
+  name: "Home",
+  props: {
+    isMobile: Boolean
+  }
 });
 
 /***/ }),
@@ -2153,156 +2155,164 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("v-container", [
-        _c(
-          "div",
-          { staticClass: "d-flex justify-space-between" },
-          [
-            _c("div", [
-              _c("div", [
-                _c("label", { staticClass: "font-weight-bold" }, [
-                  _vm._v("Email: ")
-                ]),
-                _vm._v(" "),
-                _c("label", [_vm._v("Email")])
+      _c(
+        "v-container",
+        [
+          _c(
+            "v-row",
+            { staticStyle: { width: "100%" } },
+            [
+              _c("v-col", { attrs: { cols: "12", md: "6" } }, [
+                _c("div", [
+                  _c("div", [
+                    _c("label", { staticClass: "font-weight-bold" }, [
+                      _vm._v("Email: ")
+                    ]),
+                    _vm._v(" "),
+                    _c("label", [_vm._v("Email")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("label", { staticClass: "font-weight-bold" }, [
+                      _vm._v("Instagram: ")
+                    ]),
+                    _vm._v(" "),
+                    _c("label", [_vm._v("@")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("label", { staticClass: "font-weight-bold" }, [
+                      _vm._v("Soundcloud: ")
+                    ]),
+                    _vm._v(" "),
+                    _c("label", [_vm._v("Soundcloud")])
+                  ])
+                ])
               ]),
               _vm._v(" "),
-              _c("div", [
-                _c("label", { staticClass: "font-weight-bold" }, [
-                  _vm._v("Instagram: ")
-                ]),
-                _vm._v(" "),
-                _c("label", [_vm._v("@")])
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c("label", { staticClass: "font-weight-bold" }, [
-                  _vm._v("Soundcloud: ")
-                ]),
-                _vm._v(" "),
-                _c("label", [_vm._v("Soundcloud")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "v-form",
-              {
-                ref: "form",
-                attrs: { "lazy-validation": "" },
-                model: {
-                  value: _vm.valid,
-                  callback: function($$v) {
-                    _vm.valid = $$v
-                  },
-                  expression: "valid"
-                }
-              },
-              [
-                _c("v-text-field", {
-                  attrs: {
-                    counter: 10,
-                    rules: _vm.nameRules,
-                    label: "Name",
-                    required: ""
-                  },
-                  model: {
-                    value: _vm.name,
-                    callback: function($$v) {
-                      _vm.name = $$v
-                    },
-                    expression: "name"
-                  }
-                }),
-                _vm._v(" "),
-                _c("v-text-field", {
-                  attrs: {
-                    rules: _vm.emailRules,
-                    label: "E-mail",
-                    required: ""
-                  },
-                  model: {
-                    value: _vm.email,
-                    callback: function($$v) {
-                      _vm.email = $$v
-                    },
-                    expression: "email"
-                  }
-                }),
-                _vm._v(" "),
-                _c("v-select", {
-                  attrs: {
-                    items: _vm.items,
-                    rules: [
-                      function(v) {
-                        return !!v || "Item is required"
+              _c(
+                "v-col",
+                { attrs: { cols: "12", md: "6" } },
+                [
+                  _c(
+                    "v-form",
+                    {
+                      ref: "form",
+                      attrs: { "lazy-validation": "" },
+                      model: {
+                        value: _vm.valid,
+                        callback: function($$v) {
+                          _vm.valid = $$v
+                        },
+                        expression: "valid"
                       }
-                    ],
-                    label: "Item",
-                    required: ""
-                  },
-                  model: {
-                    value: _vm.select,
-                    callback: function($$v) {
-                      _vm.select = $$v
                     },
-                    expression: "select"
-                  }
-                }),
-                _vm._v(" "),
-                _c("v-checkbox", {
-                  attrs: {
-                    rules: [
-                      function(v) {
-                        return !!v || "You must agree to continue!"
-                      }
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          counter: 10,
+                          rules: _vm.nameRules,
+                          label: "Nome",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.name,
+                          callback: function($$v) {
+                            _vm.name = $$v
+                          },
+                          expression: "name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          rules: _vm.emailRules,
+                          label: "E-mail",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.email,
+                          callback: function($$v) {
+                            _vm.email = $$v
+                          },
+                          expression: "email"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          counter: 20,
+                          rules: _vm.nameRules,
+                          label: "Assunto",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.name,
+                          callback: function($$v) {
+                            _vm.name = $$v
+                          },
+                          expression: "name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          counter: 999,
+                          rules: _vm.nameRules,
+                          label: "Mensagem",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.name,
+                          callback: function($$v) {
+                            _vm.name = $$v
+                          },
+                          expression: "name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "mr-4",
+                          attrs: { disabled: !_vm.valid, color: "success" },
+                          on: { click: _vm.validate }
+                        },
+                        [_vm._v("\n            Validate\n          ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "mr-4",
+                          attrs: { color: "error" },
+                          on: { click: _vm.reset }
+                        },
+                        [_vm._v("\n            Reset Form\n          ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "warning" },
+                          on: { click: _vm.resetValidation }
+                        },
+                        [_vm._v("\n            Reset Validation\n          ")]
+                      )
                     ],
-                    label: "Do you agree?",
-                    required: ""
-                  },
-                  model: {
-                    value: _vm.checkbox,
-                    callback: function($$v) {
-                      _vm.checkbox = $$v
-                    },
-                    expression: "checkbox"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    staticClass: "mr-4",
-                    attrs: { disabled: !_vm.valid, color: "success" },
-                    on: { click: _vm.validate }
-                  },
-                  [_vm._v("\n          Validate\n        ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    staticClass: "mr-4",
-                    attrs: { color: "error" },
-                    on: { click: _vm.reset }
-                  },
-                  [_vm._v(" Reset Form ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { color: "warning" },
-                    on: { click: _vm.resetValidation }
-                  },
-                  [_vm._v("\n          Reset Validation\n        ")]
-                )
-              ],
-              1
-            )
-          ],
-          1
-        )
-      ])
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex justify-space-between" })
+        ],
+        1
+      )
     ],
     1
   )
@@ -2343,12 +2353,12 @@ var render = function() {
     [
       _c(
         "v-row",
-        { staticClass: "d-flex align-center" },
+        { class: "d-flex " + (!_vm.isMobile ? "align-center" : "") },
         [
           _c("v-col", { attrs: { cols: "6" } }, [
             _c("p", [
               _vm._v(
-                '\n        Lorem Ipsum is simply dummy text of the printing and typesetting\n        industry. Lorem Ipsum has been the industry\'s standard dummy text ever\n        since the 1500s, when an unknown printer took a galley of type and\n        scrambled it to make a type specimen book. It has survived not only\n        five centuries, but also the leap into electronic typesetting,\n        remaining essentially unchanged. It was popularised in the 1960s with\n        the release of Letraset sheets containing Lorem Ipsum passages, and\n        more recently with desktop publishing software like Aldus PageMaker\n        including versions of Lorem Ipsum. Contrary to popular belief, Lorem\n        Ipsum is not simply random text. It has roots in a piece of classical\n        Latin literature from 45 BC, making it over 2000 years old. Richard\n        McClintock, a Latin professor at Hampden-Sydney College in Virginia,\n        looked up one of the more obscure Latin words, consectetur, from a\n        Lorem Ipsum passage, and going through the cites of the word in\n        classical literature, discovered the undoubtable source. Lorem Ipsum\n        comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et\n        Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.\n        This book is a treatise on the theory of ethics, very popular during\n        the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit\n        amet..", comes from a line in section 1.10.32.\n      '
+                "\n        Lorem Ipsum is simply dummy text of the printing and typesetting\n        industry. Lorem Ipsum has been the industry's standard dummy text ever\n        since the 1500s, when an unknown printer took a galley of type and\n        scrambled it to make a type specimen book. It has survived not only\n        five centuries, but also the leap into electronic typesetting,\n        remaining essentially unchanged. It was popularised in the 1960s with\n        the release of Letraset sheets containing Lorem Ipsum passages, and\n        more recently with desktop publishing software like Aldus PageMaker\n        including versions of Lorem Ipsum. Contrary to popular belief, Lorem\n        Ipsum is not simply random text. It has roots in a piece of classical\n        Latin literature from 45 BC, making it over 2000 years old.\n      "
               )
             ])
           ]),
@@ -2666,7 +2676,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c(
-        "v-main",
+        "v-content",
         [
           _c(
             "div",
@@ -2702,7 +2712,7 @@ var render = function() {
               })
             : _c("header-menu-hide"),
           _vm._v(" "),
-          _c("router-view")
+          _c("router-view", { attrs: { isMobile: _vm.isMobile } })
         ],
         1
       )

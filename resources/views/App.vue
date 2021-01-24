@@ -4,7 +4,7 @@
       href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
       rel="stylesheet"
     />
-    <v-main>
+    <v-content>
       <div class="py-2 px-2">
         <v-btn @click="() => (menu = !menu)" v-if="isMobile">Menu</v-btn>
       </div>
@@ -14,8 +14,8 @@
         v-if="$route.name === 'Home' || isMobile"
       />
       <header-menu-hide v-else />
-      <router-view></router-view>
-    </v-main>
+      <router-view :isMobile="isMobile"></router-view>
+    </v-content>
   </v-app>
 </template>
 
