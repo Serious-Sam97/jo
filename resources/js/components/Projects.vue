@@ -3,60 +3,61 @@
     <div class="d-flex justify-center mt-7 mb-15">
       <label style="font-size: 25px">Projectos/ Ouça</label>
     </div>
-
-    <v-row style="width: 100%; height: 100%">
-      <v-col cols="8" class="gambiarra-azul">
-        <v-row style="width: 100%; height: 380px">
-          <v-col
-            cols="12"
-            md="6"
-            class="gambiarra"
-            style="width: 300px; height: 100%"
-            >TESTEEEEEEEEEEEEEEEEEEEEEE</v-col
-          >
-          <v-col
-            cols="12"
-            md="6"
-            class="gambiarra"
-            style="width: 300px; height: 100%"
-          >
-            TESTEEEEEEEEEEEEEEEEEEEEEE
-          </v-col>
-        </v-row>
-        <v-row class="mt-7" style="width: 100%; height: 380px">
-          <v-col
-            cols="12"
-            md="6"
-            class="gambiarra"
-            style="width: 300px; height: 100%"
-            >TESTEEEEEEEEEEEEEEEEEEEEEE</v-col
-          >
-          <v-col
-            cols="12"
-            md="6"
-            class="gambiarra"
-            style="width: 300px; height: 100%"
-          >
-            TESTEEEEEEEEEEEEEEEEEEEEEE
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col cols="4" class="gambiarra"> TESTEEEEEEEEEEEEEEEEEEEEEE</v-col>
-    </v-row>
+    <v-container>
+      <div class="d-flex justify-space-between">
+        <div :style="`width: 540px;`">
+          <iframe
+            style="width: 20em"
+            height="315px"
+            src="https://www.youtube.com/embed/gavHNe8peD4"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <div>
+            <p>
+              Dois Peixes Synths, percussões, pads e processamento da guitarra e
+              piano nesse single, que também conta com a colaboração de Otávio
+              Carvalho (Vitrola Sintética), Victor Meira (Bratislava, Godasadog)
+              e Allen Alencar. Vídeo por Ênio Vital.
+            </p>
+          </div>
+        </div>
+        <div :style="`width: 540px;`">
+          <iframe
+            style="width: 20em"
+            height="315px"
+            src="https://www.youtube.com/embed/gavHNe8peD4"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <label>
+            Dois Peixes Synths, percussões, pads e processamento da guitarra e
+            piano nesse single, que também conta com a colaboração de Otávio
+            Carvalho (Vitrola Sintética), Victor Meira (Bratislava, Godasadog) e
+            Allen Alencar. Vídeo por Ênio Vital.
+          </label>
+        </div>
+      </div>
+    </v-container>
   </div>
 </template>
 
 <script>
 export default {
   name: "Projects",
+  props: {
+    isMobile: Boolean,
+  },
+  computed: {
+    youtubeVideosWidth() {
+      console.log(this.isMobile);
+      return this.isMobile ? "530px" : "560px";
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.gambiarra {
-  border: 1px solid red;
-}
-.gambiarra-azul {
-  border: 1px solid blue;
-}
 </style>
