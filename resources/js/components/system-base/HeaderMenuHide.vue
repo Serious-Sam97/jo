@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       items: [
-        { title: "Home", route: "Home" },
+        { title: "Sobre", route: "Home" },
         { title: "Projetos", route: "Projects" },
         { title: "Contato", route: "Contact" },
       ],

@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       items: [
-        { title: "Home", route: "Home" },
+        { title: "Sobre", route: "Home" },
         { title: "Projetos", route: "Projects" },
         { title: "Contato", route: "Contact" },
       ],
@@ -57,6 +57,10 @@ export default {
 .v-navigation-drawer__content {
   display: flex !important;
   align-items: center !important;
+}
+
+.v-navigation-drawer {
+  height: calc(100vh) !important;
 }
 </style>
        

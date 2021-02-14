@@ -9,7 +9,7 @@
         isMobile ? 'align-start' : 'align-center'
       }`"
     >
-      <p>
+      <p class="mr-4" style="text-align: justify">
         Me chamo Joe Irente. Sou produtor musical, compositor e engenheiro de
         mixagem, atualmente residindo em São Paulo – SP. Minha trajetória com
         música e computadores começou muito cedo. Ainda na época da escola
