@@ -28,6 +28,11 @@ export default {
     HeaderMenu,
     HeaderMenuHide,
   },
+  mounted() {
+    if (localStorage.getItem("language") === null) {
+      localStorage.setItem("language", "ptbr");
+    }
+  },
   data() {
     return {
       menu: false,

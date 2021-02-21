@@ -1,13 +1,7 @@
 <template>
-  <v-navigation-drawer
-    permanent
-    absolute
-    expand-on-hover
-    right
-    class="hover-menu"
-  >
+  <v-navigation-drawer fixed permanent expand-on-hover right class="hover-menu">
     <v-list dense>
-      <v-list-item v-for="item in items" :key="item.title">
+      <v-list-item v-for="(item, itemIndex) in items" :key="itemIndex">
         <v-list-item-content>
           <v-list-item-title>
             <v-btn
@@ -15,17 +9,24 @@
               elevation="2"
               outlined
               raised
-              >{{ item.title }}</v-btn
+              >{{ menuItems[itemIndex] }}</v-btn
             >
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
+    <template v-slot:append>
+      <div>
+        <language-selector />
+      </div>
+    </template>
   </v-navigation-drawer>
 </template>
 
 <script>
+import LanguageSelector from "./LanguageSelector.vue";
 export default {
+  components: { LanguageSelector },
   name: "HeaderMenuHide",
   data() {
     return {
@@ -36,13 +37,22 @@ export default {
       ],
     };
   },
+  computed: {
+    menuItems() {
+      if (localStorage.getItem("language") === "ptbr") {
+        return ["Sobre", "Projetos", "Contato"];
+      }
+      return ["About", "Projects", "Contact"];
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .v-navigation-drawer__content {
   display: flex !important;
-  align-items: center !important;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .hover-menu {
