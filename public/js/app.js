@@ -384,6 +384,11 @@ __webpack_require__.r(__webpack_exports__);
       checkbox: false
     };
   },
+  computed: {
+    header: function header() {
+      return localStorage.getItem("language") === "ptbr" ? "Contato" : "Contact";
+    }
+  },
   methods: {
     validate: function validate() {
       this.$refs.form.validate();
@@ -604,6 +609,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     youtubeVideosWidth: function youtubeVideosWidth() {
       return this.isMobile ? "530px" : "560px";
+    },
+    header: function header() {
+      return localStorage.getItem("language") === "ptbr" ? "Projetos / Ouça" : "Projects / Listen";
     },
     texts: function texts() {
       if (localStorage.getItem("language") === "ptbr") {
@@ -2631,7 +2639,11 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c("div", { staticClass: "d-flex justify-center mt-7 mb-15" }, [
+        _c("label", { staticStyle: { "font-size": "25px" } }, [
+          _vm._v(_vm._s(_vm.header))
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "v-container",
@@ -2776,16 +2788,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex justify-center mt-7 mb-15" }, [
-      _c("label", { staticStyle: { "font-size": "25px" } }, [_vm._v("Contato")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -2865,7 +2868,11 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c("div", { staticClass: "d-flex justify-center mt-7 mb-15" }, [
+        _c("label", { staticStyle: { "font-size": "25px" } }, [
+          _vm._v(_vm._s(_vm.header))
+        ])
+      ]),
       _vm._v(" "),
       _vm.isMobile
         ? _c("projects-mobile")
@@ -3060,18 +3067,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex justify-center mt-7 mb-15" }, [
-      _c("label", { staticStyle: { "font-size": "25px" } }, [
-        _vm._v("Projectos/ Ouça")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

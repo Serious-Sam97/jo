@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex justify-center mt-7 mb-15">
-      <label style="font-size: 25px">Contato</label>
+      <label style="font-size: 25px">{{ header }}</label>
     </div>
     <v-container>
       <v-row style="width: 100%">
@@ -89,7 +89,13 @@ export default {
     items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
   }),
-
+  computed: {
+    header() {
+      return localStorage.getItem("language") === "ptbr"
+        ? "Contato"
+        : "Contact";
+    },
+  },
   methods: {
     validate() {
       this.$refs.form.validate();

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex justify-center mt-7 mb-15">
-      <label style="font-size: 25px">Projectos/ Ouça</label>
+      <label style="font-size: 25px">{{ header }}</label>
     </div>
     <projects-mobile v-if="isMobile" />
     <v-container v-else>
@@ -138,6 +138,11 @@ export default {
   computed: {
     youtubeVideosWidth() {
       return this.isMobile ? "530px" : "560px";
+    },
+    header() {
+      return localStorage.getItem("language") === "ptbr"
+        ? "Projetos / Ouça"
+        : "Projects / Listen";
     },
     texts() {
       if (localStorage.getItem("language") === "ptbr") {
