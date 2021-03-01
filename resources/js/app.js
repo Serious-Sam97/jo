@@ -7,6 +7,7 @@ import App from '../views/App.vue'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue';
+import Config from './components/Config.vue';
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const router = new VueRouter({
             path: '/contact',
             name: 'Contact',
             component: Contact,
+        },
+        {
+            path: '/rapture-city',
+            name: 'Config',
+            component: Config,
         },
     ],
 });
