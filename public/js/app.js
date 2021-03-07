@@ -2396,6 +2396,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2417,13 +2419,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   data: function data() {
     return {
-      ptbrText: "Me chamo Joe Irente. Sou produtor musical, compositor e engenheiro de\nmixagem, atualmente residindo em S\xE3o Paulo \u2013 SP. Minha trajet\xF3ria com\nm\xFAsica e computadores come\xE7ou muito cedo. Ainda na \xE9poca da escola\npassei dos estudos de guitarra \xE0s primeiras experi\xEAncias com DAWs,\ncompondo minhas primeiras batidas. Em 2015 comecei a me\nprofissionalizar, me associando a outros m\xFAsicos e assinando as\nprodu\xE7\xF5es dos meus primeiros projetos. A cada novo projeto e atrav\xE9s da\ntroca com outros artistas, mantenho a mente aberta, buscando novas\nsonoridades e t\xE9cnicas que se encaixem na proposta. Hoje produzo e mixo\nartistas e bandas de diversos g\xEAneros musicais, ciente de que esse \xE9 um\ncaminho de constante aprendizado, frente \xE0 oferta extremamente din\xE2mica\nde softwares e inova\xE7\xF5es tecnol\xF3gicas. Meu m\xE9todo de produ\xE7\xE3o e mixagem\n\xE9 criativo, num sentido de que tomo a liberdade para gravar novas\ncamadas, novos instrumentos e mexer nos arranjos. Pra mim, o conceito do\nprojeto est\xE1 acima de tudo, \xE9 a partir dele que defino quais\nequipamentos, softwares e t\xE9cnicas ser\xE3o utilizadas. N\xE3o acredito que\nhaja uma maneira correta de produzir m\xFAsica, nem que um est\xFAdio vintage\ncar\xEDssimo v\xE1 salvar uma composi\xE7\xE3o ruim. Acredito que cada projeto tem\nsuas exig\xEAncias e particularidades, acredito na liberdade criativa e na\nexperimenta\xE7\xE3o. Por isso marco diversas reuni\xF5es e busco conhecer toda a\nobra do artista com quem trabalho, al\xE9m de buscar refer\xEAncias fora do\nmundo da m\xFAsica: em filmes, artes pl\xE1sticas e performances. Nesse site\nvoc\xEA vai encontrar projetos que produzi e que produzo atualmente, com\nbreves descri\xE7\xF5es do processo. Sinta-se \xE0 vontade para entrar em contato\nse voc\xEA tem qualquer d\xFAvida ou interesse em trabalhar comigo, seja na\nprodu\xE7\xE3o, mixagem, composi\xE7\xE3o ou conceptualiza\xE7\xE3o do seu projeto!",
-      enText: "My name is Joe Irente. I\u2019m a music producer, composer and mixing engineer, based in S\xE3o Paulo \u2013 SP. My\nhistory with music and computers started early. During school I went from guitar studies to my first experiences with\nDAWs, creating my first beats. In 2015 I started associating with other musicians and signing the production of my first\nprojects. At each new project and with the exchange with other musicians, I keep an open mind, exploring new sound\nand techniques for each proposal. Nowadays I produce and mix artists/ bands from numerous genres, aware that there\u2019s\nalways something to learn, in front of an extremely dynamic music software and technology offer.\nMy mixing method is creative, in a sense that I feel free to record new layers, new instruments and\narrangements. As I see, the concept is the most important aspect of the project, based on it I define which gear, software\nand techniques will be used. I don\u2019t believe there\u2019s a correct way to produce music, neither that a expensive studio will\nsave a poor arrangement. I believe that each project has its own needs and peculiarities, I believe in creative freedom\nand experimentation. For that reason, I schedule multiple meetings and get familiar with all the artist\u2019s work, also\nsearching references outside the music world: in film, visual arts and performances.\nIn this site you\u2019ll find projects I\u2019ve produced and produce nowadays, with brief descriptions of the process. Feel\nfree to contact me if there\u2019s any doubt or if you have interest in working with me, be it in the production, mixing,\ncomposing or conceptualization of your project!\n        "
+      ptbrText: "",
+      enText: "\n        "
     };
   },
   props: {
@@ -2436,6 +2438,20 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return this.enText;
+    }
+  },
+  mounted: function mounted() {
+    this.getSetting();
+  },
+  methods: {
+    getSetting: function getSetting() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/setting").then(function (_ref) {
+        var data = _ref.data;
+        _this.ptbrText = data.bio_pt;
+        _this.enText = data.bio_en;
+      });
     }
   }
 });
