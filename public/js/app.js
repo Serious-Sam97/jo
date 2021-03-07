@@ -2195,6 +2195,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Config",
@@ -2209,6 +2220,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getSetting();
     this.getProjects();
+    this.getSocials();
   },
   methods: {
     getProjects: function getProjects() {
@@ -2237,6 +2249,11 @@ __webpack_require__.r(__webpack_exports__);
     deleteProject: function deleteProject(projectIndex) {
       var _this2 = this;
 
+      if (this.projects[projectIndex].id === 0) {
+        this.$delete(this.projects, projectIndex);
+        return;
+      }
+
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/projects/".concat(this.projects[projectIndex].id)).then(function () {
         _this2.$delete(_this2.projects, projectIndex);
       });
@@ -2258,6 +2275,38 @@ __webpack_require__.r(__webpack_exports__);
         bio_pt: this.bio,
         bio_en: this.bioEN
       });
+    },
+    createSocial: function createSocial() {
+      this.socials.push({
+        id: 0,
+        title: "",
+        value: ""
+      });
+    },
+    saveSocials: function saveSocials() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/socials", {
+        socials: this.socials
+      });
+    },
+    getSocials: function getSocials() {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/socials", this.socials).then(function (_ref3) {
+        var data = _ref3.data;
+        return _this4.socials = data;
+      });
+    },
+    deleteSocials: function deleteSocials(socialsIndex) {
+      var _this5 = this;
+
+      if (this.socials[socialsIndex].id === 0) {
+        this.$delete(this.socials, socialsIndex);
+        return;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/socials/".concat(this.socials[socialsIndex].id), this.socials).then(function () {
+        _this5.$delete(_this5.socials, socialsIndex);
+      });
     }
   }
 });
@@ -2273,6 +2322,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2337,18 +2388,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Contact",
   data: function data() {
     return {
+      socials: [],
       valid: true,
       name: "",
       nameRules: [function (v) {
@@ -2372,7 +2417,18 @@ __webpack_require__.r(__webpack_exports__);
       return localStorage.getItem("language") === "ptbr" ? "Contato" : "Contact";
     }
   },
+  mounted: function mounted() {
+    this.getSocials();
+  },
   methods: {
+    getSocials: function getSocials() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/socials", this.socials).then(function (_ref) {
+        var data = _ref.data;
+        return _this.socials = data;
+      });
+    },
     validate: function validate() {
       this.$refs.form.validate();
     },
@@ -4827,12 +4883,14 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("v-simple-table", [
+      _c("v-simple-table", { staticStyle: { "max-width": "95%" } }, [
         _c("thead", [
           _c("tr", [
             _c("th", [_vm._v("Social Plataform")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Nickname")])
+            _c("th", [_vm._v("Nickname")]),
+            _vm._v(" "),
+            _c("th")
           ])
         ]),
         _vm._v(" "),
@@ -4840,9 +4898,56 @@ var render = function() {
           "tbody",
           _vm._l(_vm.socials, function(social, socialIndex) {
             return _c("tr", { key: "social-" + socialIndex }, [
-              _c("td"),
+              _c(
+                "td",
+                [
+                  _c("v-text-field", {
+                    model: {
+                      value: _vm.socials[socialIndex].title,
+                      callback: function($$v) {
+                        _vm.$set(_vm.socials[socialIndex], "title", $$v)
+                      },
+                      expression: "socials[socialIndex].title"
+                    }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("td")
+              _c(
+                "td",
+                [
+                  _c("v-text-field", {
+                    model: {
+                      value: _vm.socials[socialIndex].value,
+                      callback: function($$v) {
+                        _vm.$set(_vm.socials[socialIndex], "value", $$v)
+                      },
+                      expression: "socials[socialIndex].value"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  _c(
+                    "v-icon",
+                    {
+                      staticClass: "pointer",
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteSocials(socialIndex)
+                        }
+                      }
+                    },
+                    [_vm._v("fas fa-trash-alt")]
+                  )
+                ],
+                1
+              )
             ])
           }),
           0
@@ -4853,9 +4958,21 @@ var render = function() {
         "div",
         { staticClass: "d-flex justify-center mt-2" },
         [
-          _c("v-icon", { staticClass: "pointer" }, [
-            _vm._v("fas fa-plus-circle")
-          ])
+          _c(
+            "v-icon",
+            { staticClass: "pointer", on: { click: _vm.createSocial } },
+            [_vm._v("fas fa-plus-circle")]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              staticClass: "ml-3",
+              attrs: { color: "green" },
+              on: { click: _vm.saveSocials }
+            },
+            [_vm._v("Save")]
+          )
         ],
         1
       )
@@ -4902,31 +5019,19 @@ var render = function() {
             { staticStyle: { width: "100%" } },
             [
               _c("v-col", { attrs: { cols: "12", md: "6" } }, [
-                _c("div", [
-                  _c("div", [
-                    _c("label", { staticClass: "font-weight-bold" }, [
-                      _vm._v("Email: ")
-                    ]),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Email")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("label", { staticClass: "font-weight-bold" }, [
-                      _vm._v("Instagram: ")
-                    ]),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("@")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("label", { staticClass: "font-weight-bold" }, [
-                      _vm._v("Soundcloud: ")
-                    ]),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Soundcloud")])
-                  ])
-                ])
+                _c(
+                  "div",
+                  _vm._l(_vm.socials, function(social, socialIndex) {
+                    return _c("div", { key: socialIndex }, [
+                      _c("label", { staticClass: "font-weight-bold" }, [
+                        _vm._v(_vm._s(social.title) + ":")
+                      ]),
+                      _vm._v(" "),
+                      _c("label", [_vm._v(_vm._s(social.value))])
+                    ])
+                  }),
+                  0
+                )
               ]),
               _vm._v(" "),
               _c(

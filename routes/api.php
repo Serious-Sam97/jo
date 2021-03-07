@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Application\Http\Controllers\ProjectsController;
 use App\Application\Http\Controllers\SettingController;
+use App\Application\Http\Controllers\SocialsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,7 @@ Route::middleware('api')->post('/projects/{project}', ProjectsController::class 
 
 Route::middleware('api')->get('/setting', SettingController::class . '@index');
 Route::middleware('api')->post('/setting', SettingController::class . '@store');
+
+Route::middleware('api')->get('/socials', SocialsController::class . '@index');
+Route::middleware('api')->post('/socials', SocialsController::class . '@store');
+Route::middleware('api')->post('/socials/{social}', SocialsController::class . '@destroy');

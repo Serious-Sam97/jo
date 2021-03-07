@@ -7,17 +7,9 @@
       <v-row style="width: 100%">
         <v-col cols="12" md="6">
           <div>
-            <div>
-              <label class="font-weight-bold">Email: </label>
-              <label>Email</label>
-            </div>
-            <div>
-              <label class="font-weight-bold">Instagram: </label>
-              <label>@</label>
-            </div>
-            <div>
-              <label class="font-weight-bold">Soundcloud: </label>
-              <label>Soundcloud</label>
+            <div v-for="(social, socialIndex) in socials" :key="socialIndex">
+              <label class="font-weight-bold">{{ social.title }}:</label>
+              <label>{{ social.value }}</label>
             </div>
           </div>
         </v-col>
@@ -71,9 +63,11 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Contact",
   data: () => ({
+    socials: [],
     valid: true,
     name: "",
     nameRules: [
@@ -96,7 +90,15 @@ export default {
         : "Contact";
     },
   },
+  mounted() {
+    this.getSocials();
+  },
   methods: {
+    getSocials() {
+      axios
+        .get("/api/socials", this.socials)
+        .then(({ data }) => (this.socials = data));
+    },
     validate() {
       this.$refs.form.validate();
     },

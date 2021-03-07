@@ -65,11 +65,12 @@
       <v-btn @click="saveProjects" class="ml-3" color="green">Save</v-btn>
     </div>
     <br />
-    <v-simple-table>
+    <v-simple-table style="max-width: 95%">
       <thead>
         <tr>
           <th>Social Plataform</th>
           <th>Nickname</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -77,13 +78,23 @@
           :key="`social-${socialIndex}`"
           v-for="(social, socialIndex) in socials"
         >
-          <td></td>
-          <td></td>
+          <td>
+            <v-text-field v-model="socials[socialIndex].title" />
+          </td>
+          <td>
+            <v-text-field v-model="socials[socialIndex].value" />
+          </td>
+          <td>
+            <v-icon @click="deleteSocials(socialIndex)" class="pointer"
+              >fas fa-trash-alt</v-icon
+            >
+          </td>
         </tr>
       </tbody>
     </v-simple-table>
     <div class="d-flex justify-center mt-2">
-      <v-icon class="pointer">fas fa-plus-circle</v-icon>
+      <v-icon @click="createSocial" class="pointer">fas fa-plus-circle</v-icon>
+      <v-btn @click="saveSocials" class="ml-3" color="green">Save</v-btn>
     </div>
   </div>
 </template>
@@ -103,6 +114,7 @@ export default {
   mounted() {
     this.getSetting();
     this.getProjects();
+    this.getSocials();
   },
   methods: {
     getProjects() {
@@ -122,6 +134,10 @@ export default {
       axios.post("/api/projects", { projects: this.projects });
     },
     deleteProject(projectIndex) {
+      if (this.projects[projectIndex].id === 0) {
+        this.$delete(this.projects, projectIndex);
+        return;
+      }
       axios.post(`/api/projects/${this.projects[projectIndex].id}`).then(() => {
         this.$delete(this.projects, projectIndex);
       });
@@ -139,6 +155,32 @@ export default {
         bio_pt: this.bio,
         bio_en: this.bioEN,
       });
+    },
+    createSocial() {
+      this.socials.push({
+        id: 0,
+        title: "",
+        value: "",
+      });
+    },
+    saveSocials() {
+      axios.post("/api/socials", { socials: this.socials });
+    },
+    getSocials() {
+      axios
+        .get("/api/socials", this.socials)
+        .then(({ data }) => (this.socials = data));
+    },
+    deleteSocials(socialsIndex) {
+      if (this.socials[socialsIndex].id === 0) {
+        this.$delete(this.socials, socialsIndex);
+        return;
+      }
+      axios
+        .post(`/api/socials/${this.socials[socialsIndex].id}`, this.socials)
+        .then(() => {
+          this.$delete(this.socials, socialsIndex);
+        });
     },
   },
 };
