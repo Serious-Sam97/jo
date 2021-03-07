@@ -6,7 +6,9 @@
     />
     <v-content>
       <div class="py-2 px-2">
-        <v-btn @click="() => (menu = !menu)" v-if="isMobile">Menu</v-btn>
+        <v-btn icon @click="() => (menu = !menu)" v-if="isMobile"
+          ><v-icon>fas fa-bars</v-icon></v-btn
+        >
       </div>
       <header-menu
         :isMobile="isMobile"

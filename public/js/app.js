@@ -336,11 +336,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Config",
   data: function data() {
     return {
       bio: "",
+      bioEN: "",
       projects: [],
       socials: []
     };
@@ -607,64 +616,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -680,13 +631,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     header: function header() {
       return localStorage.getItem("language") === "ptbr" ? "Projetos / Ouça" : "Projects / Listen";
-    },
-    texts: function texts() {
-      if (localStorage.getItem("language") === "ptbr") {
-        return [" <b>Dois Peixes</b><br />\n            Synths, percuss\xF5es, pads e processamento da guitarra e piano nesse\n            single, que tamb\xE9m conta com a colabora\xE7\xE3o de Ot\xE1vio Carvalho\n            (Vitrola Sint\xE9tica), Victor Meira (Bratislava, Godasadog) e Allen\n            Alencar. V\xEDdeo por \xCAnio Vital.", " <b>HENRI</b> (projeto em andamento)<br />\n            Projeto com proposta indie-pop que faz refer\xEAncia a m\xFAsica disco e\n            new wave da d\xE9cada de 80. Aqui gravo, produzo e mixo todas as\n            faixas, al\xE9m de compor parcialmente, trazendo instrumentos\n            eletr\xF4nicos anal\xF3gicos. Previs\xE3o de lan\xE7amento: in\xEDcio de 2022.", "<b>Corte Aberto \u2013 A Casa/ A Causa</b> (projeto em andamento)<br />\n            \xC1lbum de rock psicod\xE9lico gravado ao vivo, com todos os m\xFAsicos no\n            mesmo ambiente e numa ac\xFAstica n\xE3o-ideal. Minha fun\xE7\xE3o aqui foi\n            gravar, produzir e mixar as faixas, mantendo a fidelidade com a\n            performance. Tamb\xE9m foram adicionados sons de foley gravados nos\n            diferentes c\xF4modos da casa. Previs\xE3o de lan\xE7amento: segundo semestre\n            de 2021.", "<b>Dolphinkids</b> <br />\n            Banda de synth-pop em que componho, produzo e mixo desde 2016, al\xE9m\n            de tocar sintetizador e guitarra ao vivo. O primeiro EP \u201CBluebird\u201D\n            (2016) foi produzido digitalmente, de forma caseira e com vocais\n            gravados n\xE3o-idealmente. \u201CPrimavera\u201D (2018) conta com uma produ\xE7\xE3o\n            mais complexa, marcado pelas v\xE1rias camadas de pads e texturas\n            atmosf\xE9ricas. Em 2020, ap\xF3s dois anos de hiato, foi lan\xE7ado o single\n            \u201CLes Miroirs\u201D, que produzi usando principalmente sintetizadores e\n            drum machines anal\xF3gicos das d\xE9cadas de 80 e 90."];
-      }
-
-      return [" <b>Dois Peixes</b><br />\n           Synths, percussion, pads, guitar and piano processing, in this single, in collaboration with Ot\xE1vio Carvalho (Vitrola\nSint\xE9tica), Victor Meira (Bratislava, Godasadog) and Allen Alencar. Video by \xCAnio Vital.\n", " <b>HENRI</b> (work in progress)<br />\n            Indie-pop project that references 80s disco and new wave. All tracks are recorded, produced and mixed by me. I also\ncompose partially, bringing analog electronic instruments.\nExpected release: early 2022.", "<b>Corte Aberto \u2013 A Casa/ A Causa</b> (work in progress)<br />\n            Psychedelic rock album recorded live, with all musicians in the same room and on non-ideal acoustics. All tracks\nrecorded, produced and mixed by me, staying true to the performance. During the album, there were also added foley\nrecordings from all over the house.\nExpected release: mid 2021.", "<b>Dolphinkids</b> <br />\n            Synth-pop band where I produce, compose, mix and play synthesizer/ guitar live since 2016. The debut \u201CBluebird\u201D EP\n(2016) was digitally produced in the bedroom with vocals recorded non-ideally. \u201CPrimavera\u201D EP (2018) had a more\ncomplex production, defined by its numerous pads and atmospheric textures. In 2020, after a two year hiatus, we\nreleased \u201CLes Miroirs\u201D, which I produced using mostly 80s/ 90s synths and drum machines."];
     }
   }
 });
@@ -1074,6 +1018,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1105,6 +1051,24 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".pointer[data-v-a7e07f26] {\n  cursor: pointer;\n}", ""]);
+// Exports
+module.exports = exports;
+
 
 /***/ }),
 
@@ -1862,6 +1826,36 @@ process.umask = function() { return 0; };
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true& */ "./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -2706,16 +2700,29 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "px-5 py-5" },
     [
-      _c("h3", [_vm._v("Bio")]),
+      _c("h3", [_vm._v("Bio (PTBR)")]),
       _vm._v(" "),
-      _c("v-text-field", {
+      _c("v-textarea", {
         model: {
           value: _vm.bio,
           callback: function($$v) {
             _vm.bio = $$v
           },
           expression: "bio"
+        }
+      }),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Bio (EN)")]),
+      _vm._v(" "),
+      _c("v-textarea", {
+        model: {
+          value: _vm.bioEN,
+          callback: function($$v) {
+            _vm.bioEN = $$v
+          },
+          expression: "bioEN"
         }
       }),
       _vm._v(" "),
@@ -2755,6 +2762,17 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex justify-center mt-2" },
+        [
+          _c("v-icon", { staticClass: "pointer" }, [
+            _vm._v("fas fa-plus-circle")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c("br"),
       _vm._v(" "),
       _c("v-simple-table", [
@@ -2777,7 +2795,18 @@ var render = function() {
           }),
           0
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex justify-center mt-2" },
+        [
+          _c("v-icon", { staticClass: "pointer" }, [
+            _vm._v("fas fa-plus-circle")
+          ])
+        ],
+        1
+      )
     ],
     1
   )
@@ -3135,98 +3164,6 @@ var render = function() {
                 _c("p", {
                   staticClass: "text-caption",
                   domProps: { innerHTML: _vm._s(_vm.texts[1]) }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "d-flex justify-space-between mt-5" }, [
-              _c("div", { style: "width: 540px;" }, [
-                _c("iframe", {
-                  attrs: {
-                    width: "100%",
-                    height: "295px",
-                    scrolling: "no",
-                    frameborder: "no",
-                    allow: "autoplay",
-                    src:
-                      "https://w.soundcloud.com/player/?\nurl=https%3A//api.soundcloud.com/tracks/971403955%3Fsecret_token%3Ds-0qcyuuTTTkB&color=\n%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true\n"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticStyle: {
-                      "font-size": "10px",
-                      color: "#cccccc",
-                      "line-break": "anywhere",
-                      "word-break": "normal",
-                      overflow: "hidden",
-                      "white-space": "nowrap",
-                      "text-overflow": "ellipsis",
-                      "font-family":
-                        "Interstate, Lucida Grande, Lucida Sans Unicode,",
-                      "font-weight": "100"
-                    }
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticStyle: {
-                          color: "#cccccc",
-                          "text-decoration": "none"
-                        },
-                        attrs: {
-                          href: "https://soundcloud.com/joeirente",
-                          title: "joeirente",
-                          target: "_blank"
-                        }
-                      },
-                      [_vm._v("joeirente")]
-                    ),
-                    _vm._v("\n            ·\n            "),
-                    _c(
-                      "a",
-                      {
-                        staticStyle: {
-                          color: "#cccccc",
-                          "text-decoration": "none"
-                        },
-                        attrs: {
-                          href:
-                            "https://soundcloud.com/joeirente/corteaberto-prod-joe-irente-demo-reel/s-0qcyuuTTTkB",
-                          title: "Corte Aberto prod. Joe Irente (demo reel)",
-                          target: "_blank"
-                        }
-                      },
-                      [_vm._v("Corte Aberto prod. Joe Irente (demo reel)")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", {
-                  staticClass: "text-caption",
-                  domProps: { innerHTML: _vm._s(_vm.texts[2]) }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { style: "width: 540px;" }, [
-                _c("iframe", {
-                  staticStyle: { width: "100%" },
-                  attrs: {
-                    src:
-                      "https://open.spotify.com/embed/playlist/0kWhQL5LsGvrYJLF7dldGa",
-                    height: "315px",
-                    frameborder: "0",
-                    allowtransparency: "true",
-                    allow: "encrypted-media"
-                  }
-                }),
-                _vm._v(" "),
-                _c("p", {
-                  staticClass: "text-caption",
-                  domProps: { innerHTML: _vm._s(_vm.texts[3]) }
                 })
               ])
             ])
@@ -3692,13 +3629,15 @@ var render = function() {
                 ? _c(
                     "v-btn",
                     {
+                      attrs: { icon: "" },
                       on: {
                         click: function() {
                           return (_vm.menu = !_vm.menu)
                         }
                       }
                     },
-                    [_vm._v("Menu")]
+                    [_c("v-icon", [_vm._v("fas fa-bars")])],
+                    1
                   )
                 : _vm._e()
             ],
@@ -63151,10 +63090,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
-    path: '/',
-    name: 'Projects',
-    component: _components_Projects_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }, {
     path: '/about',
     name: 'Home',
     component: _components_Home_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -63166,6 +63101,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/rapture-city',
     name: 'Config',
     component: _components_Config_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }, {
+    path: '/',
+    name: 'Projects',
+    component: _components_Projects_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   }]
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -63190,7 +63129,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Config_vue_vue_type_template_id_a7e07f26_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config.vue?vue&type=template&id=a7e07f26&scoped=true& */ "./resources/js/components/Config.vue?vue&type=template&id=a7e07f26&scoped=true&");
 /* harmony import */ var _Config_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Config.vue?vue&type=script&lang=js& */ "./resources/js/components/Config.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Config_vue_vue_type_style_index_0_id_a7e07f26_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true& */ "./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -63198,7 +63139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Config_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Config_vue_vue_type_template_id_a7e07f26_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Config_vue_vue_type_template_id_a7e07f26_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -63227,6 +63168,22 @@ component.options.__file = "resources/js/components/Config.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Config_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Config.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Config.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Config_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true& ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Config_vue_vue_type_style_index_0_id_a7e07f26_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Config.vue?vue&type=style&index=0&id=a7e07f26&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Config_vue_vue_type_style_index_0_id_a7e07f26_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Config_vue_vue_type_style_index_0_id_a7e07f26_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Config_vue_vue_type_style_index_0_id_a7e07f26_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Config_vue_vue_type_style_index_0_id_a7e07f26_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 

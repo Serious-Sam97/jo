@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <h3>Bio</h3>
-    <v-text-field v-model="bio"> </v-text-field>
+  <div class="px-5 py-5">
+    <h3>Bio (PTBR)</h3>
+    <v-textarea v-model="bio"> </v-textarea>
+    <h3>Bio (EN)</h3>
+    <v-textarea v-model="bioEN"> </v-textarea>
     <br />
     <v-simple-table>
       <thead>
@@ -23,6 +25,9 @@
         </tr>
       </tbody>
     </v-simple-table>
+    <div class="d-flex justify-center mt-2">
+      <v-icon class="pointer">fas fa-plus-circle</v-icon>
+    </div>
     <br />
     <v-simple-table>
       <thead>
@@ -41,6 +46,9 @@
         </tr>
       </tbody>
     </v-simple-table>
+    <div class="d-flex justify-center mt-2">
+      <v-icon class="pointer">fas fa-plus-circle</v-icon>
+    </div>
   </div>
 </template>
 
@@ -50,6 +58,7 @@ export default {
   data() {
     return {
       bio: "",
+      bioEN: "",
       projects: [],
       socials: [],
     };
@@ -58,4 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pointer {
+  cursor: pointer;
+}
 </style>

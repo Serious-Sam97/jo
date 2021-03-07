@@ -15,11 +15,6 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
-            name: 'Projects',
-            component: Projects,
-        },
-        {
             path: '/about',
             name: 'Home',
             component: Home,
@@ -33,6 +28,11 @@ const router = new VueRouter({
             path: '/rapture-city',
             name: 'Config',
             component: Config,
+        },
+        {
+            path: '/',
+            name: 'Projects',
+            component: Projects,
         },
     ],
 });
