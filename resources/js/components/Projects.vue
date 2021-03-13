@@ -22,9 +22,8 @@
               height="295px" -->
           <div v-html="project.iframe"></div>
           <div>
-            <p class="text-h6 mb-0">{{ project.title }}</p>
-            <p class="text-caption" style="font-size: 12px !important">
-              {{ projectDescription(project) }}
+            <p class="text-subtitle-2 font-weight-bold mb-0" v-html="project.title"></p>
+            <p class="text-caption" style="font-size: 12px !important" v-html="projectDescription(project)">
             </p>
           </div>
         </div>
@@ -73,8 +72,8 @@ export default {
     },
     header() {
       return localStorage.getItem("language") === "ptbr"
-        ? "Projetos / Ouça"
-        : "Projects / Listen";
+        ? "Projetos"
+        : "Projects";
     },
   },
 };

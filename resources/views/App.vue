@@ -32,7 +32,7 @@ export default {
   },
   mounted() {
     if (localStorage.getItem("language") === null) {
-      localStorage.setItem("language", "ptbr");
+      localStorage.setItem("language", "en");
     }
   },
   data() {

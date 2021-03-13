@@ -1,5 +1,10 @@
 <template>
   <v-navigation-drawer fixed permanent expand-on-hover right class="hover-menu">
+    <template v-slot:prepend>
+      <div class="mt-3">
+        <language-selector />
+      </div>
+    </template>
     <v-list dense>
       <v-list-item v-for="(item, itemIndex) in items" :key="itemIndex">
         <v-list-item-content>
@@ -15,11 +20,6 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-    <template v-slot:append>
-      <div>
-        <language-selector />
-      </div>
-    </template>
   </v-navigation-drawer>
 </template>
 
@@ -31,7 +31,6 @@ export default {
   data() {
     return {
       items: [
-        { title: "Sobre", route: "Home" },
         { title: "Projetos", route: "Projects" },
         { title: "Contato", route: "Contact" },
       ],
@@ -40,9 +39,9 @@ export default {
   computed: {
     menuItems() {
       if (localStorage.getItem("language") === "ptbr") {
-        return ["Sobre", "Projetos", "Contato"];
+        return ["Projetos", "Sobre/Contato"];
       }
-      return ["About", "Projects", "Contact"];
+      return ["Projects", "About/Contact"];
     },
   },
 };

@@ -21,6 +21,8 @@ class SettingController extends Controller
             [
                 'bio_pt' => $request->get('bio_pt'),
                 'bio_en' => $request->get('bio_en'),
+                'desc_pt' => $request->get('desc_pt'),
+                'desc_en' => $request->get('desc_en'),
             ]
         );
     }

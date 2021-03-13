@@ -2206,6 +2206,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Config",
@@ -2213,6 +2217,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       bio: "",
       bioEN: "",
+      desc: "",
+      descEN: "",
       projects: [],
       socials: []
     };
@@ -2267,13 +2273,17 @@ __webpack_require__.r(__webpack_exports__);
         if (data !== null) {
           _this3.bio = data.bio_pt;
           _this3.bioEN = data.bio_en;
+          _this3.desc = data.desc_pt;
+          _this3.descEN = data.desc_en;
         }
       });
     },
     createSetting: function createSetting() {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/setting", {
         bio_pt: this.bio,
-        bio_en: this.bioEN
+        bio_en: this.bioEN,
+        desc_pt: this.desc,
+        desc_en: this.descEN
       });
     },
     createSocial: function createSocial() {
@@ -2388,11 +2398,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Contact",
   data: function data() {
     return {
+      bio: "",
+      bioEN: "",
+      desc: "",
+      descEN: "",
       socials: [],
       valid: true,
       name: "",
@@ -2413,11 +2458,21 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
+    isPT: function isPT() {
+      return localStorage.getItem("language") === "ptbr";
+    },
     header: function header() {
-      return localStorage.getItem("language") === "ptbr" ? "Contato" : "Contact";
+      return this.isPT ? "Sobre/Contato" : "About/Contact";
+    },
+    settingBio: function settingBio() {
+      return this.isPT ? this.bio : this.bioEN;
+    },
+    settingDesc: function settingDesc() {
+      return this.isPT ? this.desc : this.descEN;
     }
   },
   mounted: function mounted() {
+    this.getSetting();
     this.getSocials();
   },
   methods: {
@@ -2437,6 +2492,20 @@ __webpack_require__.r(__webpack_exports__);
     },
     resetValidation: function resetValidation() {
       this.$refs.form.resetValidation();
+    },
+    getSetting: function getSetting() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/setting").then(function (_ref2) {
+        var data = _ref2.data;
+
+        if (data !== null) {
+          _this2.bio = data.bio_pt;
+          _this2.bioEN = data.bio_en;
+          _this2.desc = data.desc_pt;
+          _this2.descEN = data.desc_en;
+        }
+      });
     }
   }
 });
@@ -2560,7 +2629,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2603,7 +2671,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.isMobile ? "530px" : "560px";
     },
     header: function header() {
-      return localStorage.getItem("language") === "ptbr" ? "Projetos / Ouça" : "Projects / Listen";
+      return localStorage.getItem("language") === "ptbr" ? "Projetos" : "Projects";
     }
   }
 });
@@ -2807,9 +2875,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       items: [{
-        title: "Sobre",
-        route: "Home"
-      }, {
         title: "Projetos",
         route: "Projects"
       }, {
@@ -2825,10 +2890,10 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     menuItems: function menuItems() {
       if (localStorage.getItem("language") === "ptbr") {
-        return ["Sobre", "Projetos", "Contato"];
+        return ["Projetos", "Sobre/Contato"];
       }
 
-      return ["About", "Projects", "Contact"];
+      return ["Projects", "About/Contact"];
     },
     menu: {
       set: function set(value) {
@@ -2887,9 +2952,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       items: [{
-        title: "Sobre",
-        route: "Home"
-      }, {
         title: "Projetos",
         route: "Projects"
       }, {
@@ -2901,10 +2963,10 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     menuItems: function menuItems() {
       if (localStorage.getItem("language") === "ptbr") {
-        return ["Sobre", "Projetos", "Contato"];
+        return ["Projetos", "Sobre/Contato"];
       }
 
-      return ["About", "Projects", "Contact"];
+      return ["Projects", "About/Contact"];
     }
   }
 });
@@ -3003,7 +3065,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     if (localStorage.getItem("language") === null) {
-      localStorage.setItem("language", "ptbr");
+      localStorage.setItem("language", "en");
     }
   },
   data: function data() {
@@ -4678,6 +4740,7 @@ var render = function() {
       _c("h3", [_vm._v("Bio (PTBR)")]),
       _vm._v(" "),
       _c("v-textarea", {
+        attrs: { rows: 2 },
         model: {
           value: _vm.bio,
           callback: function($$v) {
@@ -4690,12 +4753,39 @@ var render = function() {
       _c("h3", [_vm._v("Bio (EN)")]),
       _vm._v(" "),
       _c("v-textarea", {
+        attrs: { rows: 2 },
         model: {
           value: _vm.bioEN,
           callback: function($$v) {
             _vm.bioEN = $$v
           },
           expression: "bioEN"
+        }
+      }),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Desc (PTBR)")]),
+      _vm._v(" "),
+      _c("v-textarea", {
+        attrs: { rows: 6 },
+        model: {
+          value: _vm.desc,
+          callback: function($$v) {
+            _vm.desc = $$v
+          },
+          expression: "desc"
+        }
+      }),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Desc (EN)")]),
+      _vm._v(" "),
+      _c("v-textarea", {
+        attrs: { rows: 6 },
+        model: {
+          value: _vm.descEN,
+          callback: function($$v) {
+            _vm.descEN = $$v
+          },
+          expression: "descEN"
         }
       }),
       _vm._v(" "),
@@ -5002,145 +5092,193 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "d-flex justify-center mt-7 mb-15" }, [
+  return _c("div", [
+    _c(
+      "div",
+      {
+        class:
+          "d-flex justify-center  " +
+          (_vm.$vuetify.breakpoint.smAndDown ? "" : "mt-7 mb-15")
+      },
+      [
         _c("label", { staticStyle: { "font-size": "25px" } }, [
           _vm._v(_vm._s(_vm.header))
         ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "v-container",
-        [
-          _c(
-            "v-row",
-            { staticStyle: { width: "100%" } },
-            [
-              _c("v-col", { attrs: { cols: "12", md: "6" } }, [
-                _c(
-                  "div",
-                  _vm._l(_vm.socials, function(social, socialIndex) {
-                    return _c("div", { key: socialIndex }, [
-                      _c("label", { staticClass: "font-weight-bold" }, [
-                        _vm._v(_vm._s(social.title) + ":")
-                      ]),
-                      _vm._v(" "),
-                      _c("label", [_vm._v(_vm._s(social.value))])
-                    ])
-                  }),
-                  0
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "v-col",
-                { attrs: { cols: "12", md: "6" } },
-                [
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c(
+          "v-row",
+          {
+            staticClass: "px-10",
+            style: _vm.$vuetify.breakpoint.smAndDown
+              ? "width: 100%; overflow: auto; height: calc(79vh); padding-bottom: 70px"
+              : "width: 92%"
+          },
+          [
+            _c(
+              "v-col",
+              {
+                class:
+                  "d-flex " +
+                  (_vm.$vuetify.breakpoint.smAndDown
+                    ? "justify-center"
+                    : "justify-end"),
+                attrs: { cols: "12", md: "4" }
+              },
+              [
+                _c("div", [
+                  _c("img", { attrs: { src: "/joe.jpg", width: "300px" } }),
+                  _vm._v(" "),
                   _c(
-                    "v-form",
-                    {
-                      ref: "form",
-                      attrs: { "lazy-validation": "" },
-                      model: {
-                        value: _vm.valid,
-                        callback: function($$v) {
-                          _vm.valid = $$v
-                        },
-                        expression: "valid"
-                      }
-                    },
+                    "div",
+                    { staticClass: "mt-3 ml-5" },
                     [
-                      _c("v-text-field", {
-                        attrs: {
-                          counter: 10,
-                          rules: _vm.nameRules,
-                          label: "Nome",
-                          required: ""
-                        },
-                        model: {
-                          value: _vm.name,
-                          callback: function($$v) {
-                            _vm.name = $$v
-                          },
-                          expression: "name"
-                        }
+                      _c("p", {
+                        staticClass: "text-subtitle-2",
+                        staticStyle: { color: "black" },
+                        domProps: { innerHTML: _vm._s(_vm.settingBio) }
                       }),
                       _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          rules: _vm.emailRules,
-                          label: "E-mail",
-                          required: ""
-                        },
-                        model: {
-                          value: _vm.email,
-                          callback: function($$v) {
-                            _vm.email = $$v
-                          },
-                          expression: "email"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          counter: 20,
-                          rules: _vm.nameRules,
-                          label: "Assunto",
-                          required: ""
-                        },
-                        model: {
-                          value: _vm.name,
-                          callback: function($$v) {
-                            _vm.name = $$v
-                          },
-                          expression: "name"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        attrs: {
-                          counter: 999,
-                          rules: _vm.nameRules,
-                          label: "Mensagem",
-                          required: ""
-                        },
-                        model: {
-                          value: _vm.name,
-                          callback: function($$v) {
-                            _vm.name = $$v
-                          },
-                          expression: "name"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "mr-4",
-                          attrs: { disabled: !_vm.valid, color: "success" },
-                          on: { click: _vm.validate }
-                        },
-                        [_vm._v("\n            Enviar\n          ")]
-                      )
+                      _vm._l(_vm.socials, function(social, socialIndex) {
+                        return _c("div", { key: socialIndex }, [
+                          _c(
+                            "label",
+                            { staticStyle: { "font-weight": "bolder" } },
+                            [_vm._v(_vm._s(social.title) + ":")]
+                          ),
+                          _vm._v(" "),
+                          _c("label", [_vm._v(_vm._s(social.value))])
+                        ])
+                      })
                     ],
-                    1
+                    2
                   )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "d-flex justify-space-between" })
-        ],
-        1
-      )
-    ],
-    1
-  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("v-col", { attrs: { cols: "12", md: "4" } }, [
+              _c("div", {
+                class: _vm.$vuetify.breakpoint.smAndDown ? "" : "mt-10",
+                domProps: { innerHTML: _vm._s(_vm.settingDesc) }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "v-col",
+              { attrs: { cols: "12", md: "4" } },
+              [
+                _c(
+                  "v-form",
+                  {
+                    ref: "form",
+                    attrs: { "lazy-validation": "" },
+                    model: {
+                      value: _vm.valid,
+                      callback: function($$v) {
+                        _vm.valid = $$v
+                      },
+                      expression: "valid"
+                    }
+                  },
+                  [
+                    _c("v-text-field", {
+                      attrs: {
+                        counter: 10,
+                        rules: _vm.nameRules,
+                        label: _vm.isPT ? "Nome" : "Name",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.name,
+                        callback: function($$v) {
+                          _vm.name = $$v
+                        },
+                        expression: "name"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        rules: _vm.emailRules,
+                        label: "E-mail",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.email,
+                        callback: function($$v) {
+                          _vm.email = $$v
+                        },
+                        expression: "email"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        counter: 20,
+                        rules: _vm.nameRules,
+                        label: _vm.isPT ? "Assunto" : "Subject",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.name,
+                        callback: function($$v) {
+                          _vm.name = $$v
+                        },
+                        expression: "name"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        counter: 999,
+                        rules: _vm.nameRules,
+                        label: _vm.isPT ? "Mensagem" : "Message",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.name,
+                        callback: function($$v) {
+                          _vm.name = $$v
+                        },
+                        expression: "name"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mr-4",
+                        attrs: { disabled: !_vm.valid, color: "success" },
+                        on: { click: _vm.validate }
+                      },
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(_vm.isPT ? "Enviar" : "Send") +
+                            "\n          "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex justify-space-between" })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -5249,24 +5387,18 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("div", [
-                        _c("p", { staticClass: "text-h6 mb-0" }, [
-                          _vm._v(_vm._s(project.title))
-                        ]),
+                        _c("p", {
+                          staticClass: "text-subtitle-2 font-weight-bold mb-0",
+                          domProps: { innerHTML: _vm._s(project.title) }
+                        }),
                         _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-caption",
-                            staticStyle: { "font-size": "12px !important" }
-                          },
-                          [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(_vm.projectDescription(project)) +
-                                "\n          "
-                            )
-                          ]
-                        )
+                        _c("p", {
+                          staticClass: "text-caption",
+                          staticStyle: { "font-size": "12px !important" },
+                          domProps: {
+                            innerHTML: _vm._s(_vm.projectDescription(project))
+                          }
+                        })
                       ])
                     ]
                   )
@@ -5510,9 +5642,11 @@ var render = function() {
       },
       scopedSlots: _vm._u([
         {
-          key: "append",
+          key: "prepend",
           fn: function() {
-            return [_c("div", [_c("language-selector")], 1)]
+            return [
+              _c("div", { staticClass: "mt-3" }, [_c("language-selector")], 1)
+            ]
           },
           proxy: true
         }
@@ -5526,6 +5660,7 @@ var render = function() {
       }
     },
     [
+      _vm._v(" "),
       _c(
         "v-list",
         { attrs: { dense: "" } },
@@ -5597,15 +5732,18 @@ var render = function() {
       attrs: { fixed: "", permanent: "", "expand-on-hover": "", right: "" },
       scopedSlots: _vm._u([
         {
-          key: "append",
+          key: "prepend",
           fn: function() {
-            return [_c("div", [_c("language-selector")], 1)]
+            return [
+              _c("div", { staticClass: "mt-3" }, [_c("language-selector")], 1)
+            ]
           },
           proxy: true
         }
       ])
     },
     [
+      _vm._v(" "),
       _c(
         "v-list",
         { attrs: { dense: "" } },

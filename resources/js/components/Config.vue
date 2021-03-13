@@ -1,9 +1,13 @@
 <template>
   <div class="px-5 py-5">
     <h3>Bio (PTBR)</h3>
-    <v-textarea v-model="bio"> </v-textarea>
+    <v-textarea :rows="2" v-model="bio"> </v-textarea>
     <h3>Bio (EN)</h3>
-    <v-textarea v-model="bioEN"> </v-textarea>
+    <v-textarea :rows="2" v-model="bioEN"> </v-textarea>
+    <h3>Desc (PTBR)</h3>
+    <v-textarea :rows="6" v-model="desc"> </v-textarea>
+    <h3>Desc (EN)</h3>
+    <v-textarea :rows="6" v-model="descEN"> </v-textarea>
     <v-btn @click="createSetting" class="ml-3 mt-3" color="green">Save</v-btn>
     <br />
     <v-simple-table style="max-width: 95%">
@@ -107,6 +111,8 @@ export default {
     return {
       bio: "",
       bioEN: "",
+      desc: "",
+      descEN: "",
       projects: [],
       socials: [],
     };
@@ -147,6 +153,8 @@ export default {
         if (data !== null) {
           this.bio = data.bio_pt;
           this.bioEN = data.bio_en;
+          this.desc = data.desc_pt;
+          this.descEN = data.desc_en;
         }
       });
     },
@@ -154,6 +162,8 @@ export default {
       axios.post("/api/setting", {
         bio_pt: this.bio,
         bio_en: this.bioEN,
+        desc_pt: this.desc,
+        desc_en: this.descEN,
       });
     },
     createSocial() {
