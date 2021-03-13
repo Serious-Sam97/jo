@@ -2595,6 +2595,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProjectsMobile_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProjectsMobile.vue */ "./resources/js/components/ProjectsMobile.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2638,7 +2656,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "Projects",
   data: function data() {
     return {
-      projects: []
+      projects: [],
+      projectsMobile: []
     };
   },
   props: {
@@ -2654,6 +2673,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/projects").then(function (_ref) {
         var data = _ref.data;
         var projects = [];
+        _this.projectsMobile = _toConsumableArray(data);
 
         while (data.length) {
           projects.push(data.splice(0, 2));
@@ -2718,107 +2738,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProjectsMobile",
-  computed: {
-    texts: function texts() {
-      if (localStorage.getItem("language") === "ptbr") {
-        return [" <b>Dois Peixes</b><br />\n            Synths, percuss\xF5es, pads e processamento da guitarra e piano nesse\n            single, que tamb\xE9m conta com a colabora\xE7\xE3o de Ot\xE1vio Carvalho\n            (Vitrola Sint\xE9tica), Victor Meira (Bratislava, Godasadog) e Allen\n            Alencar. V\xEDdeo por \xCAnio Vital.", " <b>HENRI</b> (projeto em andamento)<br />\n            Projeto com proposta indie-pop que faz refer\xEAncia a m\xFAsica disco e\n            new wave da d\xE9cada de 80. Aqui gravo, produzo e mixo todas as\n            faixas, al\xE9m de compor parcialmente, trazendo instrumentos\n            eletr\xF4nicos anal\xF3gicos. Previs\xE3o de lan\xE7amento: in\xEDcio de 2022.", "<b>Corte Aberto \u2013 A Casa/ A Causa</b> (projeto em andamento)<br />\n            \xC1lbum de rock psicod\xE9lico gravado ao vivo, com todos os m\xFAsicos no\n            mesmo ambiente e numa ac\xFAstica n\xE3o-ideal. Minha fun\xE7\xE3o aqui foi\n            gravar, produzir e mixar as faixas, mantendo a fidelidade com a\n            performance. Tamb\xE9m foram adicionados sons de foley gravados nos\n            diferentes c\xF4modos da casa. Previs\xE3o de lan\xE7amento: segundo semestre\n            de 2021.", "<b>Dolphinkids</b> <br />\n            Banda de synth-pop em que componho, produzo e mixo desde 2016, al\xE9m\n            de tocar sintetizador e guitarra ao vivo. O primeiro EP \u201CBluebird\u201D\n            (2016) foi produzido digitalmente, de forma caseira e com vocais\n            gravados n\xE3o-idealmente. \u201CPrimavera\u201D (2018) conta com uma produ\xE7\xE3o\n            mais complexa, marcado pelas v\xE1rias camadas de pads e texturas\n            atmosf\xE9ricas. Em 2020, ap\xF3s dois anos de hiato, foi lan\xE7ado o single\n            \u201CLes Miroirs\u201D, que produzi usando principalmente sintetizadores e\n            drum machines anal\xF3gicos das d\xE9cadas de 80 e 90."];
-      }
-
-      return [" <b>Dois Peixes</b><br />\n           Synths, percussion, pads, guitar and piano processing, in this single, in collaboration with Ot\xE1vio Carvalho (Vitrola\nSint\xE9tica), Victor Meira (Bratislava, Godasadog) and Allen Alencar. Video by \xCAnio Vital.\n", " <b>HENRI</b> (work in progress)<br />\n            Indie-pop project that references 80s disco and new wave. All tracks are recorded, produced and mixed by me. I also\ncompose partially, bringing analog electronic instruments.\nExpected release: early 2022.", "<b>Corte Aberto \u2013 A Casa/ A Causa</b> (work in progress)<br />\n            Psychedelic rock album recorded live, with all musicians in the same room and on non-ideal acoustics. All tracks\nrecorded, produced and mixed by me, staying true to the performance. During the album, there were also added foley\nrecordings from all over the house.\nExpected release: mid 2021.", "<b>Dolphinkids</b> <br />\n            Synth-pop band where I produce, compose, mix and play synthesizer/ guitar live since 2016. The debut \u201CBluebird\u201D EP\n(2016) was digitally produced in the bedroom with vocals recorded non-ideally. \u201CPrimavera\u201D EP (2018) had a more\ncomplex production, defined by its numerous pads and atmospheric textures. In 2020, after a two year hiatus, we\nreleased \u201CLes Miroirs\u201D, which I produced using mostly 80s/ 90s synths and drum machines."];
+  props: {
+    projects: Array
+  },
+  methods: {
+    projectDescription: function projectDescription(project) {
+      return localStorage.getItem("language") === "ptbr" ? project.description_pt : project.description_en;
     }
   }
 });
@@ -5367,7 +5294,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm.isMobile
-        ? _c("projects-mobile")
+        ? _c("projects-mobile", { attrs: { projects: _vm.projectsMobile } })
         : _c(
             "v-container",
             _vm._l(_vm.projects, function(base, baseIndex) {
@@ -5434,179 +5361,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-container", {}, [
-    _c("div", { staticClass: "d-flex flex-column align-center" }, [
-      _c("div", { staticClass: "container", style: "calc(44vh);" }, [
-        _c("iframe", {
-          staticClass: "responsive-iframe",
-          attrs: {
-            height: "315px",
-            src: "https://www.youtube.com/embed/gavHNe8peD4",
-            frameborder: "0",
-            allow:
-              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-            allowfullscreen: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("div", [
-          _c("p", {
-            staticClass: "text-caption",
-            domProps: { innerHTML: _vm._s(_vm.texts[0]) }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container", style: "calc(44vh);" }, [
-        _c("iframe", {
-          staticClass: "responsive-iframe",
-          attrs: {
-            width: "100%",
-            height: "295px",
-            scrolling: "no",
-            frameborder: "no",
-            allow: "autoplay",
-            src:
-              "https://w.soundcloud.com/player/?\nurl=https%3A//api.soundcloud.com/tracks/971401771%3Fsecret_token%3Ds-Tqf2m0C8vfQ&color=\n%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true\n"
-          }
-        }),
-        _vm._v(" "),
-        _c(
+  return _c("v-container", [
+    _c(
+      "div",
+      { staticClass: "d-flex flex-column align-center" },
+      _vm._l(_vm.projects, function(project, projectIndex) {
+        return _c(
           "div",
           {
-            staticStyle: {
-              "font-size": "10px",
-              color: "#cccccc",
-              "line-break": "anywhere",
-              "word-break": "normal",
-              overflow: "hidden",
-              "white-space": "nowrap",
-              "text-overflow": "ellipsis",
-              "font-family": "Interstate, Lucida Grande, Lucida Sans Unicode,",
-              "font-weight": "100"
-            }
+            key: "projects-" + projectIndex,
+            staticClass: "container",
+            style: "calc(44vh);"
           },
           [
-            _c(
-              "a",
-              {
-                staticStyle: { color: "#cccccc", "text-decoration": "none" },
-                attrs: {
-                  href: "https://soundcloud.com/joeirente",
-                  title: "joeirente",
-                  target: "_blank"
-                }
-              },
-              [_vm._v("joeirente")]
-            ),
-            _vm._v("\n          ·\n          "),
-            _c(
-              "a",
-              {
-                staticStyle: { color: "#cccccc", "text-decoration": "none" },
-                attrs: {
-                  href:
-                    "https://soundcloud.com/joeirente/henrireel/s-Tqf2m0C8vfQ",
-                  title: "HENRI prod. Joe Irente (demo reel)",
-                  target: "_blank"
-                }
-              },
-              [_vm._v("HENRI prod. Joe Irente (demo reel)")]
-            )
+            _c("div", { domProps: { innerHTML: _vm._s(project.iframe) } }),
+            _vm._v(" "),
+            _c("div", [
+              _c("p", {
+                staticClass: "text-subtitle-2 font-weight-bold mb-0",
+                domProps: { innerHTML: _vm._s(project.title) }
+              }),
+              _vm._v(" "),
+              _c("p", {
+                staticClass: "text-caption",
+                staticStyle: { "font-size": "12px !important" },
+                domProps: { innerHTML: _vm._s(_vm.projectDescription(project)) }
+              })
+            ])
           ]
-        ),
-        _vm._v(" "),
-        _c("p", {
-          staticClass: "text-caption",
-          domProps: { innerHTML: _vm._s(_vm.texts[1]) }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container", style: "calc(44vh);" }, [
-        _c("iframe", {
-          staticClass: "responsive-iframe",
-          attrs: {
-            width: "100%",
-            height: "295px",
-            scrolling: "no",
-            frameborder: "no",
-            allow: "autoplay",
-            src:
-              "https://w.soundcloud.com/player/?\nurl=https%3A//api.soundcloud.com/tracks/971403955%3Fsecret_token%3Ds-0qcyuuTTTkB&color=\n%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true\n"
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticStyle: {
-              "font-size": "10px",
-              color: "#cccccc",
-              "line-break": "anywhere",
-              "word-break": "normal",
-              overflow: "hidden",
-              "white-space": "nowrap",
-              "text-overflow": "ellipsis",
-              "font-family": "Interstate, Lucida Grande, Lucida Sans Unicode,",
-              "font-weight": "100"
-            }
-          },
-          [
-            _c(
-              "a",
-              {
-                staticStyle: { color: "#cccccc", "text-decoration": "none" },
-                attrs: {
-                  href: "https://soundcloud.com/joeirente",
-                  title: "joeirente",
-                  target: "_blank"
-                }
-              },
-              [_vm._v("joeirente")]
-            ),
-            _vm._v("\n          ·\n          "),
-            _c(
-              "a",
-              {
-                staticStyle: { color: "#cccccc", "text-decoration": "none" },
-                attrs: {
-                  href:
-                    "https://soundcloud.com/joeirente/corteaberto-prod-joe-irente-demo-reel/s-0qcyuuTTTkB",
-                  title: "Corte Aberto prod. Joe Irente (demo reel)",
-                  target: "_blank"
-                }
-              },
-              [_vm._v("Corte Aberto prod. Joe Irente (demo reel)")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("p", {
-          staticClass: "text-caption",
-          domProps: { innerHTML: _vm._s(_vm.texts[2]) }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container", style: "calc(44vh);" }, [
-        _c("iframe", {
-          staticClass: "responsive-iframe",
-          staticStyle: { width: "100%" },
-          attrs: {
-            src:
-              "https://open.spotify.com/embed/playlist/0kWhQL5LsGvrYJLF7dldGa",
-            height: "315px",
-            frameborder: "0",
-            allowtransparency: "true",
-            allow: "encrypted-media"
-          }
-        }),
-        _vm._v(" "),
-        _c("p", {
-          staticClass: "text-caption",
-          domProps: { innerHTML: _vm._s(_vm.texts[3]) }
-        })
-      ])
-    ])
+        )
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = []

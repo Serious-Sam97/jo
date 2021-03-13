@@ -3,7 +3,7 @@
     <div class="d-flex justify-center mt-7 mb-15">
       <label style="font-size: 25px">{{ header }}</label>
     </div>
-    <projects-mobile v-if="isMobile" />
+    <projects-mobile :projects="projectsMobile" v-if="isMobile" />
     <v-container v-else>
       <div
         class="d-flex justify-space-between"
@@ -22,9 +22,15 @@
               height="295px" -->
           <div v-html="project.iframe"></div>
           <div>
-            <p class="text-subtitle-2 font-weight-bold mb-0" v-html="project.title"></p>
-            <p class="text-caption" style="font-size: 12px !important" v-html="projectDescription(project)">
-            </p>
+            <p
+              class="text-subtitle-2 font-weight-bold mb-0"
+              v-html="project.title"
+            ></p>
+            <p
+              class="text-caption"
+              style="font-size: 12px !important"
+              v-html="projectDescription(project)"
+            ></p>
           </div>
         </div>
       </div>
@@ -42,6 +48,7 @@ export default {
   data() {
     return {
       projects: [],
+      projectsMobile: [],
     };
   },
   props: {
@@ -54,6 +61,7 @@ export default {
     getProjects() {
       axios.get("/api/projects").then(({ data }) => {
         const projects = [];
+        this.projectsMobile = [...data];
         while (data.length) {
           projects.push(data.splice(0, 2));
         }
