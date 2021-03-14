@@ -9,7 +9,7 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        return Project::all();
+        return Project::orderBy('id', 'asc')->get();
     }
 
     public function store(Request $request)
