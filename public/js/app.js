@@ -2210,6 +2210,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Config",
@@ -4731,6 +4735,8 @@ var render = function() {
       _c("v-simple-table", { staticStyle: { "max-width": "95%" } }, [
         _c("thead", [
           _c("tr", [
+            _c("th", [_vm._v("Ordem")]),
+            _vm._v(" "),
             _c("th", [_vm._v("Title")]),
             _vm._v(" "),
             _c("th", [_vm._v("Iframe")]),
@@ -4749,6 +4755,10 @@ var render = function() {
           "tbody",
           _vm._l(_vm.projects, function(project, projectIndex) {
             return _c("tr", { key: projectIndex }, [
+              _c("td", [
+                _vm._v("\n          " + _vm._s(projectIndex + 1) + "\n        ")
+              ]),
+              _vm._v(" "),
               _c(
                 "td",
                 [

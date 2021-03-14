@@ -13,6 +13,7 @@
     <v-simple-table style="max-width: 95%">
       <thead>
         <tr>
+          <th>Ordem</th>
           <th>Title</th>
           <th>Iframe</th>
           <th>Content (PTBR)</th>
@@ -23,6 +24,9 @@
       </thead>
       <tbody>
         <tr :key="projectIndex" v-for="(project, projectIndex) in projects">
+          <td>
+            {{ projectIndex + 1 }}
+          </td>
           <td>
             <v-text-field v-model="projects[projectIndex].title"></v-text-field>
           </td>
