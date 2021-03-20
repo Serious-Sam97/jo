@@ -2447,14 +2447,18 @@ __webpack_require__.r(__webpack_exports__);
       name: "",
       nameRules: [function (v) {
         return !!v || "Name is required";
-      }, function (v) {
-        return v && v.length <= 10 || "Name must be less than 10 characters";
       }],
       email: "",
       emailRules: [function (v) {
         return !!v || "E-mail is required";
-      }, function (v) {
-        return /.+@.+\..+/.test(v) || "E-mail must be valid";
+      }],
+      subject: "",
+      subjectRules: [function (v) {
+        return !!v || "Subject is required";
+      }],
+      message: "",
+      messageRules: [function (v) {
+        return !!v || "Message is required";
       }],
       select: null,
       items: ["Item 1", "Item 2", "Item 3", "Item 4"],
@@ -2509,6 +2513,29 @@ __webpack_require__.r(__webpack_exports__);
           _this2.desc = data.desc_pt;
           _this2.descEN = data.desc_en;
         }
+      });
+    },
+    sendEmail: function sendEmail() {
+      var _this3 = this;
+
+      this.$refs.form.validate();
+
+      if (this.name === "" || this.email === "" || this.subject === "" || this.message === "") {
+        return;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/send-email", {
+        message: this.message,
+        mail: this.email,
+        subject: this.subject,
+        name: this.name
+      })["finally"](function () {
+        _this3.name = "";
+        _this3.email = "";
+        _this3.subject = "";
+        _this3.message = "";
+
+        _this3.$refs.form.resetValidation();
       });
     }
   }
@@ -5157,32 +5184,32 @@ var render = function() {
                     _c("v-text-field", {
                       attrs: {
                         counter: 20,
-                        rules: _vm.nameRules,
+                        rules: _vm.subjectRules,
                         label: _vm.isPT ? "Assunto" : "Subject",
                         required: ""
                       },
                       model: {
-                        value: _vm.name,
+                        value: _vm.subject,
                         callback: function($$v) {
-                          _vm.name = $$v
+                          _vm.subject = $$v
                         },
-                        expression: "name"
+                        expression: "subject"
                       }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
+                    _c("v-textarea", {
                       attrs: {
                         counter: 999,
-                        rules: _vm.nameRules,
+                        rules: _vm.messageRules,
                         label: _vm.isPT ? "Mensagem" : "Message",
                         required: ""
                       },
                       model: {
-                        value: _vm.name,
+                        value: _vm.message,
                         callback: function($$v) {
-                          _vm.name = $$v
+                          _vm.message = $$v
                         },
-                        expression: "name"
+                        expression: "message"
                       }
                     }),
                     _vm._v(" "),
@@ -5191,7 +5218,7 @@ var render = function() {
                       {
                         staticClass: "mr-4",
                         attrs: { disabled: !_vm.valid, color: "success" },
-                        on: { click: _vm.validate }
+                        on: { click: _vm.sendEmail }
                       },
                       [
                         _vm._v(

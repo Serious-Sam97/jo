@@ -62,26 +62,26 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="name"
+              v-model="subject"
               :counter="20"
-              :rules="nameRules"
+              :rules="subjectRules"
               :label="isPT ? 'Assunto' : 'Subject'"
               required
             ></v-text-field>
 
-            <v-text-field
-              v-model="name"
+            <v-textarea
+              v-model="message"
               :counter="999"
-              :rules="nameRules"
+              :rules="messageRules"
               :label="isPT ? 'Mensagem' : 'Message'"
               required
-            ></v-text-field>
+            ></v-textarea>
 
             <v-btn
               :disabled="!valid"
               color="success"
               class="mr-4"
-              @click="validate"
+              @click="sendEmail"
             >
               {{ isPT ? "Enviar" : "Send" }}
             </v-btn>
@@ -105,15 +105,14 @@ export default {
     socials: [],
     valid: true,
     name: "",
-    nameRules: [
-      (v) => !!v || "Name is required",
-      (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
-    ],
+
+    nameRules: [(v) => !!v || "Name is required"],
     email: "",
-    emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-    ],
+    emailRules: [(v) => !!v || "E-mail is required"],
+    subject: "",
+    subjectRules: [(v) => !!v || "Subject is required"],
+    message: "",
+    messageRules: [(v) => !!v || "Message is required"],
     select: null,
     items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
@@ -160,6 +159,32 @@ export default {
           this.descEN = data.desc_en;
         }
       });
+    },
+    sendEmail() {
+      this.$refs.form.validate();
+
+      if (
+        this.name === "" ||
+        this.email === "" ||
+        this.subject === "" ||
+        this.message === ""
+      ) {
+        return;
+      }
+      axios
+        .post("/api/send-email", {
+          message: this.message,
+          mail: this.email,
+          subject: this.subject,
+          name: this.name,
+        })
+        .finally(() => {
+          this.name = "";
+          this.email = "";
+          this.subject = "";
+          this.message = "";
+          this.$refs.form.resetValidation();
+        });
     },
   },
 };

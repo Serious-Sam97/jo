@@ -1,5 +1,6 @@
 <?php
 
+use App\Application\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Application\Http\Controllers\ProjectsController;
 use App\Application\Http\Controllers\SettingController;
@@ -26,3 +27,5 @@ Route::middleware('api')->post('/setting', SettingController::class . '@store');
 Route::middleware('api')->get('/socials', SocialsController::class . '@index');
 Route::middleware('api')->post('/socials', SocialsController::class . '@store');
 Route::middleware('api')->post('/socials/{social}', SocialsController::class . '@destroy');
+
+Route::middleware('api')->post('/send-email', ContactController::class . '@sendMail');
