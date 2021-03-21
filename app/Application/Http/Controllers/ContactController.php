@@ -10,6 +10,6 @@ class ContactController extends Controller
 {
     public function sendMail(Request $request)
     {
-        Mail::to('samzuckerberg.jar@outlook.com')->send(new SendMessageMail($request->message, $request->mail, $request->subject, $request->name));
+        Mail::to('jf.irente@outlook.com')->send(new SendMessageMail($request->message, $request->mail, $request->subject, $request->name));
     }
 }
