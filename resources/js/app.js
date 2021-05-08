@@ -8,6 +8,7 @@ import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue';
 import Config from './components/Config.vue';
+import Login from './components/Login.vue';
 
 Vue.use(VueRouter)
 
@@ -27,7 +28,7 @@ const router = new VueRouter({
         {
             path: '/rapture-city',
             name: 'Config',
-            component: Config,
+            component: Login,
         },
         {
             path: '/',
