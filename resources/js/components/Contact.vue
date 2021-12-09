@@ -24,7 +24,7 @@
           }`"
         >
           <div>
-            <img src="/joe.jpg" width="300px" />
+            <img src="/new-joe.jpg" width="300px" height="340px" />
             <div class="mt-3 ml-5">
               <p
                 class="text-subtitle-2"

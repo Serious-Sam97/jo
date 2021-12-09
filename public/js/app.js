@@ -5167,7 +5167,13 @@ var render = function() {
               },
               [
                 _c("div", [
-                  _c("img", { attrs: { src: "/joe.jpg", width: "300px" } }),
+                  _c("img", {
+                    attrs: {
+                      src: "/new-joe.jpg",
+                      width: "300px",
+                      height: "340px"
+                    }
+                  }),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -66296,8 +66302,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/samzuckerberg/projects/jo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/samzuckerberg/projects/jo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/samzuckerberg/jo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/samzuckerberg/jo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
